@@ -20,14 +20,3 @@ class Value(Enum):
     JACK = 11
     QUEEN = 12
     KING = 13
-
-class Card:
-    def __init__(self, suit : Suit, value : Value):
-        self.suit = suit
-        self.value = value
-
-    def __repr__(self):
-        return str(self.value.name) + "/" + str(self.suit.name)
-
-    def __eq__(self, other):
-        return self.suit == other.suit and self.value == other.value

@@ -18,19 +18,10 @@ def prompt_mode(modes):
 def class_name(obj):
     return obj.__class__.__name__
 
-# if __name__ == '__main__':
-#     modes = [StandardBot(), AggressiveBot()]
-#     print_numbered_list(map(lambda x : class_name(x), modes), "==== Available Modes ====")
-#
-#     mode = prompt_mode(modes)
-#
-#     print("Selected " + class_name(mode) + ".")
-
-
-from sleight.manager import DeckManager
-from sleight.elements import *
-
 if __name__ == '__main__':
-    manager = DeckManager()
-    manager.add_all()
-    manager.remove(Suit.HEART, Value.ACE)
+    modes = [StandardBot(), AggressiveBot()]
+    print_numbered_list(map(lambda x : class_name(x), modes), "==== Available Modes ====")
+
+    mode = prompt_mode(modes)
+
+    print("Selected " + class_name(mode) + ".")

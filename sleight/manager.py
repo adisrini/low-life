@@ -23,7 +23,7 @@ class DeckManager:
                 self.add(suit, value)
 
     def exists(self, suit: Suit, value : Value):
-        return not(suit not in self.cards_by_suit or value not in self.cards_by_value or value not in self.cards_by_suit[suit] or suit not in self.cards_by_value[value])
+        return not(suit not in self.cards_by_suit or value not in self.cards_by_value or value not in self.cards_by_suit[suit] or suit not in self.cards_by_value[value] or (suit, value) not in self.cards_set)
 
     def remove(self, suit : Suit, value : Value):
         if not self.exists(suit, value):
@@ -34,10 +34,10 @@ class DeckManager:
         self.cards_set.remove((suit, value))
 
     def num_cards(self):
-        return len(cards_set)
+        return len(self.cards_set)
 
-    def num_cards(self, suit : Suit):
+    def num_cards_by_suit(self, suit : Suit):
         return len(self.cards_by_suit[suit])
 
-    def num_cards(self, value : Value):
+    def num_cards_by_value(self, value : Value):
         return len(self.cards_by_value[value])
